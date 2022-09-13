@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
 import {firestore} from "../firebase";
 import {addDoc, collection} from "@firebase/firestore"
+import { getDatabase, ref, child, get } from "firebase/database";
+
 
 export default function Home(){
     const messageRef = useRef();
-    const ref = collection(firestore,"messages");
-
+    const ref = collection(firestore,"Users");
 
     const handleSave = async(e) => {
         e.preventDefault();
@@ -22,6 +23,18 @@ export default function Home(){
             console.log(e);
         }
     }
+
+    // const dbRef = ref(getDatabase());
+    // get(child(dbRef, `Users/${message}`)).then((snapshot) => {
+    //   if (snapshot.exists()) {
+    //     console.log(snapshot.val());
+    //   } else {
+    //     console.log("No data available");
+    //   }
+    // }).catch((error) => {
+    //   console.error(error);
+    // });
+
     return (<div>
         <form onSubmit={handleSave}>
             <label>Name:</label>

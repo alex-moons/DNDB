@@ -42,4 +42,5 @@ apiKey: "AIzaSyB5-fSOccCxBv_NeTTf9vT4gKbOypRRAWQ",
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+import {getDatabase, ref, set, child, update, remove} from "https://dnd-compenduary-default-rtdb.firebaseio.com"
 export const firestore = getFirestore(app);
