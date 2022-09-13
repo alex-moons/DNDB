@@ -50,3 +50,9 @@ body {
   background: url(https://images.ctfassets.net/swt2dsco9mfe/5DL6YXggvpAmMSSRpyrtzR/56d532778e4c3547ff539c7e544fb16f/158867_1920x1342.jpg?q=70) no-repeat center right fixed;
   background-size: cover;
 }
+
+.col {
+  background-color: antiquewhite;
+  border-width: 1px;
+  border-color: black;
+}
