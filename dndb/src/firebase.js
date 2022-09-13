@@ -1,4 +1,4 @@
-// Import the functions you need from the SDKs you need
+/* // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "@firebase/firestore"
 // TODO: Add SDKs for Firebase products that you want to use
@@ -16,4 +16,30 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
+export const firestore = getFirestore(app); */
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import {getFirestore} from "@firebase/firestore"
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+apiKey: "AIzaSyB5-fSOccCxBv_NeTTf9vT4gKbOypRRAWQ",
+  authDomain: "dnd-compenduary.firebaseapp.com",
+  databaseURL: "https://dnd-compenduary-default-rtdb.firebaseio.com",
+  projectId: "dnd-compenduary",
+  storageBucket: "dnd-compenduary.appspot.com",
+  messagingSenderId: "878631323897",
+  appId: "1:878631323897:web:7f0df1c01178b88430ba28",
+  measurementId: "G-K9JKDHZNDY"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+export const firestore = getFirestore(app);
