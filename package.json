@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "firebase": "^9.9.4"
+    "firebase": "^9.9.4",
+    "firebase-scripts": "^6.0.0"
   }
 }
