@@ -37,12 +37,6 @@
   }
 }
 
-.bg-img{
-  background: url("https://images.ctfassets.net/swt2dsco9mfe/5DL6YXggvpAmMSSRpyrtzR/56d532778e4c3547ff539c7e544fb16f/158867_1920x1342.jpg?q=70") no-repeat center right fixed;
-  background-size: cover;
-  filter: blur(3px);  
-}
-
 .charCard{
   padding: 5px;
   margin: 15px;
@@ -75,13 +69,35 @@
   width: 400px;
 }
 
+.everything::before{
+  background-image: url("https://images.ctfassets.net/swt2dsco9mfe/5DL6YXggvpAmMSSRpyrtzR/56d532778e4c3547ff539c7e544fb16f/158867_1920x1342.jpg?q=70") no-repeat center right fixed;
+  background-size: cover;
+  filter: blur(3px);  
+  
+}
+
 .dispLogin{
   color: white;
 }
 
 body {
+  overflow: auto;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
   background: url(https://images.ctfassets.net/swt2dsco9mfe/5DL6YXggvpAmMSSRpyrtzR/56d532778e4c3547ff539c7e544fb16f/158867_1920x1342.jpg?q=70) no-repeat center right fixed;
-  background-size: cover;
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(80%) blur(3px);
 }
 
 #col-items {
