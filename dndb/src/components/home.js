@@ -6,7 +6,7 @@ import AppRoutes from "./routes/app_routes";
 export default function Home(){
 
     return (
-        <div className="everything">
+        <div>
             <Menu />
             <AppRoutes />
         </div>
