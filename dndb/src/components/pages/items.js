@@ -40,8 +40,8 @@ const ShowItems = () => {
                     itemsData
                     .map((item) => (
                     <Row key={item.index}>
-                        <Col>{item.name}</Col>
-                        <Col>{item.url}</Col>
+                        <Col id="col-items">{item.name}</Col>
+                        <Col id="col-items">{item.url}</Col>
                     </Row>
                     ))
                 )}

@@ -71,7 +71,7 @@ body {
   background-size: cover;
 }
 
-.col {
+#col-items {
   background-color: antiquewhite;
   border-width: 1px;
   border-color: black;
