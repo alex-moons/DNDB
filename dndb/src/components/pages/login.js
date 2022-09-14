@@ -3,10 +3,11 @@ import { GoogleLogin, GoogleLogout} from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { firestore } from "../../firebase";
 import { addDoc, collection } from "@firebase/firestore";
-
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Login(){
     const ref = collection(firestore, "users");
+    const navigate = useNavigate();
     const [ profile, setProfile ] = useState([]);
     const clientId = '32351875976-m69h4suq0n8s8p17b9tntliivhjq2bei.apps.googleusercontent.com';
 
@@ -37,6 +38,7 @@ export default function Login(){
 
     const onSuccess = (res) => {
         setProfile(res.profileObj);
+        navigate("/pages/dashboard");
     };
 
     const onFailure = (err) => {
@@ -67,7 +69,6 @@ export default function Login(){
                     clientId={clientId}
                     buttonText="Sign in with Google"
                     onSuccess={onSuccess}
-                    saveData={handleSave}
                     onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
