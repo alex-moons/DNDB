@@ -37,16 +37,42 @@
   }
 }
 
-.charCard{
-
+.bg-img{
+  background: url("https://images.ctfassets.net/swt2dsco9mfe/5DL6YXggvpAmMSSRpyrtzR/56d532778e4c3547ff539c7e544fb16f/158867_1920x1342.jpg?q=70") no-repeat center right fixed;
+  background-size: cover;
+  filter: blur(3px);  
 }
+
+.charCard{
+  padding: 5px;
+  margin: 15px;
+  font-size: 15px;
+  background-color: rgb(228, 228, 228) !important;
+}
+
+.charCard:hover {
+  box-shadow: 8px 8px 20px rgba(239, 175, 115, 0.371);
+}
+
 .cardImg{
-  height: 180px;
-  width: auto;
+  height: 150px;
+  width: auto;  
+}
+
+.rowDash{
+  padding-top: 10px;
+  padding-inline: 30px ;
+  justify-content: center;
 }
 
 
 body {
   background: url(https://images.ctfassets.net/swt2dsco9mfe/5DL6YXggvpAmMSSRpyrtzR/56d532778e4c3547ff539c7e544fb16f/158867_1920x1342.jpg?q=70) no-repeat center right fixed;
   background-size: cover;
+}
+
+h1 {
+  padding-top: 20px;
+  text-align: center;
+  color: rgb(237, 237, 237);
 }

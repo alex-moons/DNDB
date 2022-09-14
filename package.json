@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "firebase": "^9.9.4",
-    "firebase-scripts": "^6.0.0"
+    "firebase-scripts": "^6.0.0",
+    "react-router-dom": "^6.4.0"
   }
 }
