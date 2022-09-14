@@ -1,7 +1,16 @@
 import React from "react";
-import {Container, Button,Nav,Navbar,NavDropdown} from "react-bootstrap";
+import {useState} from "react";
+import {Container,Nav,Navbar,NavDropdown} from "react-bootstrap";
+import {GoogleLogout} from 'react-google-login';
+
+
 
 const Menu = () => {
+    const clientId = "32351875976-m69h4suq0n8s8p17b9tntliivhjq2bei.apps.googleusercontent.com";
+    const [setProfile ] = useState([]);
+    const logOut = () => {
+        setProfile(null);
+    };
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
@@ -21,7 +30,7 @@ const Menu = () => {
                     </NavDropdown>
                 </Nav>
                 <Navbar.Text>
-                    Signed in as: <a href="#login">User</a>
+                    <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
                 </Navbar.Text>
                 </Navbar.Collapse>
             </Container>
