@@ -71,6 +71,12 @@ body {
   background-size: cover;
 }
 
+.col {
+  background-color: antiquewhite;
+  border-width: 1px;
+  border-color: black;
+}
+
 h1 {
   padding-top: 20px;
   text-align: center;
