@@ -1,13 +1,30 @@
 import React, {useEffect, useState} from "react";
-import {Card} from "react-bootstrap";
 import { GoogleLogin, GoogleLogout} from 'react-google-login';
-import { Container} from "react-bootstrap";
 import { gapi } from 'gapi-script';
+import { firestore } from "../../firebase";
+import { addDoc, collection } from "@firebase/firestore";
 
 
 export default function Login(){
+    const ref = collection(firestore, "users");
     const [ profile, setProfile ] = useState([]);
     const clientId = '32351875976-m69h4suq0n8s8p17b9tntliivhjq2bei.apps.googleusercontent.com';
+
+    const handleSave = async(e) => {
+        e.preventDefault();
+        console.log(profile.email);
+
+        let data = {
+            email: profile.email,
+        }
+
+        try{
+            addDoc(ref,data);
+        } catch(e) {
+            console.log(e);
+        }
+    };
+
     useEffect(() => {
         const initClient = () => {
             gapi.client.init({
@@ -50,6 +67,7 @@ export default function Login(){
                     clientId={clientId}
                     buttonText="Sign in with Google"
                     onSuccess={onSuccess}
+                    onSuccess={handleSave}
                     onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={true}
