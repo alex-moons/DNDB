@@ -2,9 +2,21 @@ import React, { useEffect } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios"
+import MagicItem from "../magicItem";
 
 const ShowItems = () => {
-    const [itemsData, setItems] = useState([]);
+    const nextItem = new Object();
+    nextItem.index = "head-name";
+    nextItem.name = "name";
+    nextItem.equipment_category = {}
+    nextItem.equipment_category.index = "equipment-name";
+    nextItem.equipment_category.name = "Equipment";
+    nextItem.equipment_category.url = "url";
+    nextItem.rarity = {};
+    nextItem.rarity.name = "rarity";
+    nextItem.desc = ["description"];
+    const [itemsData, setItems] = useState([nextItem]);
+    const baseUrl = "https://www.dnd5eapi.co"
 
     useEffect(() => {
         console.log("Receiving items from API");
@@ -13,23 +25,34 @@ const ShowItems = () => {
             "https://www.dnd5eapi.co/api/magic-items"
         )
         .then((response) => {
-            console.log(response.data.results);
-            const items = response.data.results.map((item) => {
-                return {
-                    index: item.index,
-                    name: item.name,
-                    url: item.url
-                }
-            });
-            console.log(items[0]);
-            setItems(items);
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-        console.log("All items received")
-    }, []);
+            /*console.log(response.data.results);*/
+            response.data.results.map((item) => {
+                const url = baseUrl + item.url;
+                axios
+                .get(
+                    url
+                )
+                .then((response) =>{
+                    /*console.log(response.data.name);*/
+                    const nextItem = new Object();
+                    nextItem.index = response.data.index;
+                    nextItem.name = response.data.name;
+                    nextItem.equipment_category = response.data.equipment_category;
+                    nextItem.rarity = response.data.rarity;
+                    nextItem.desc = response.data.desc;
+                    if (itemsData.length === 0){
+                        setItems([nextItem]);
 
+                    } else {
+                        setItems(itemsData => [...itemsData, nextItem]);
+                    }
+                });
+            });
+        });
+
+        console.log("Items received");
+}, []);
+                
     return (
         <Container>
             <h1>All Magic Items</h1>
@@ -38,10 +61,14 @@ const ShowItems = () => {
                     <p>No hay datos</p>
                 ) : (
                     itemsData
-                    .map((item) => (
-                    <Row key={item.index}>
-                        <Col id="col-items">{item.name}</Col>
-                        <Col id="col-items">{item.url}</Col>
+                    .map((item, i) => (
+                    <Row key={item.index} id={i % 2 === 0 ? "col-items-even" : "col-items-odd"}>
+                        <MagicItem 
+                            name={item.name}
+                            equipment_category={item.equipment_category}
+                            rarity={item.rarity}
+                            desc={item.desc}
+                        />
                     </Row>
                     ))
                 )}

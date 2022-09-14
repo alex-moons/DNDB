@@ -93,8 +93,14 @@ body::before {
   filter: brightness(80%) blur(3px);
 }
 
-#col-items {
+#col-items-odd {
   background-color: antiquewhite;
+  border-width: 1px;
+  border-color: black;
+}
+
+#col-items-even {
+  background-color: lightgray;
   border-width: 1px;
   border-color: black;
 }
