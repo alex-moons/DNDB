@@ -4,6 +4,7 @@ import { gapi } from 'gapi-script';
 import { firestore } from "../../firebase";
 import { doc, setDoc } from "@firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import {Card, Row, Col} from "react-bootstrap"
 
 export default function Login(){
     const navigate = useNavigate();
@@ -54,18 +55,11 @@ export default function Login(){
     };
 
     return (
-        <div className="dispLogin">
-            <h2>React Google Login</h2>
-            <br />
+        <div class="loginCard" style={{ width: '18rem' }}>
+            <h2>Login / Sign in</h2>
             <br />
             {profile ? (
                 <div>
-                    <img src={profile.imageUrl} alt="user image" />
-                    <h3>User Logged in</h3>
-                    <p>Name: {profile.name}</p>
-                    <p>Email Address: {profile.email}</p>
-                    <br />
-                    <br />
                     <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
                 </div>
             ) : (
@@ -79,5 +73,6 @@ export default function Login(){
                 />
             )}
         </div>
+
     );
 }

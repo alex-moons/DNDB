@@ -60,9 +60,13 @@
 }
 
 .loginCard{
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 3px;
+  background-color: white;
+  padding: 30px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  align-items: center;
 }
 
 .loginDiv{
@@ -70,6 +74,7 @@
 }
 
 .dispLogin{
+  width: fit-content;
   color: white;
 }
 
