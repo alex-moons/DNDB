@@ -23,7 +23,7 @@ const Fetch = () => {
         console.log(docs);
         
     })();
-   });
+   },[]);
 
     return (
         <div>
