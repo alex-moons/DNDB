@@ -50,10 +50,14 @@ const Fetch = () => {
             </Row>
             {users.map((user, i) => (
                 <Row key={user.id} id="col-users">
-                            <Usernames
-                                    email={user.id}
-                                    name={user.name}
-                                />
+                    <Row>
+                        <Usernames
+                                email={user.id}
+                                name={user.name}
+                            />
+                        <Col><Button id="edit">Editar</Button></Col>
+                        <Col><Button id="delete" onClick={() => deleteUser(user.id)}>Delete</Button></Col>
+                    </Row>
                 </Row>
             ))}
         </div>
