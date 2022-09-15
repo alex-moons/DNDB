@@ -7,14 +7,14 @@ import MagicItem from "../magicItem";
 const ShowItems = () => {
     const nextItem = new Object();
     nextItem.index = "head-name";
-    nextItem.name = "name";
+    nextItem.name = "Name";
     nextItem.equipment_category = {}
     nextItem.equipment_category.index = "equipment-name";
     nextItem.equipment_category.name = "Equipment";
     nextItem.equipment_category.url = "url";
     nextItem.rarity = {};
-    nextItem.rarity.name = "rarity";
-    nextItem.desc = ["description"];
+    nextItem.rarity.name = "Rarity";
+    nextItem.desc = ["Description"];
     const [itemsData, setItems] = useState([nextItem]);
     const baseUrl = "https://www.dnd5eapi.co"
 
@@ -62,7 +62,7 @@ const ShowItems = () => {
                 ) : (
                     itemsData
                     .map((item, i) => (
-                    <Row key={item.index} id={i % 2 === 0 ? "col-items-even" : "col-items-odd"}>
+                    <Row key={item.index} id={i === 0 ? "col-items-title" : i % 2 === 0 ? "col-items-even" : "col-items-odd"}>
                         <MagicItem 
                             name={item.name}
                             equipment_category={item.equipment_category}

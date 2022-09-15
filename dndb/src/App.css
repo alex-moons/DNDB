@@ -93,6 +93,14 @@ body::before {
   filter: brightness(80%) blur(3px);
 }
 
+#col-items-title {
+  color: white;
+  font-weight: bold;
+  background-color: darkred;
+  border-width: 1px;
+  border-color: black;
+}
+
 #col-items-odd {
   background-color: antiquewhite;
   border-width: 1px;
