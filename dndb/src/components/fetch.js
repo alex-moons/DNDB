@@ -1,29 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { doc, collection, getDocs , deleteDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row , Button, Container } from "react-bootstrap";
 import { async } from "@firebase/util";
 import Usernames from "./usernames";
 
 const Fetch = () => {
     const [users, setUsers] = useState([]);
 
-   useEffect(() => {
-    ;(async() => {
-        const colRef = collection(firestore, "users");
-        const snapshot = await getDocs(colRef);
+    useEffect(() => {
+        ;(async() => {
+            const colRef = collection(firestore, "users");
+            const snapshot = await getDocs(colRef);
 
-        const docs = snapshot.docs.map(doc => {
-            const data = doc.data()
-            data.id = doc.id;
-            return data;
-        });
+            const docs = snapshot.docs.map(doc => {
+                const data = doc.data()
+                data.id = doc.id;
+                return data;
+            });
 
-        setUsers(docs);
-        console.log(docs);
-        
-    })();
-   },[]);
+            setUsers(docs);
+            console.log(docs);
+            
+        })();
+    },[]);
+
+    const deleteUser = async (id) => {
+        await firestore.collection("users").doc(id).delete();
+        console.log(id);
+        return id;
+    };
 
     return (
         <div>
@@ -44,10 +50,10 @@ const Fetch = () => {
             </Row>
             {users.map((user, i) => (
                 <Row key={user.id} id="col-users">
-                    <Usernames
-                            email={user.id}
-                            name={user.name}
-                        />
+                            <Usernames
+                                    email={user.id}
+                                    name={user.name}
+                                />
                 </Row>
             ))}
         </div>
