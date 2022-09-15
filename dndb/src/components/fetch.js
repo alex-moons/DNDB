@@ -28,12 +28,18 @@ const Fetch = () => {
     return (
         <div>
             <h1>Users</h1>
-            <Row>
+            <Row id="title-users">
                 <Col>
                     <h2 id="user-table">Email</h2>
                 </Col>
                 <Col>
                     <h2 id="user-table">Name</h2>
+                </Col>
+                <Col>
+                    <h2 id="user-table">Editar</h2>
+                </Col>
+                <Col>
+                    <h2 id="user-table">Delete</h2>
                 </Col>
             </Row>
             {users.map((user, i) => (

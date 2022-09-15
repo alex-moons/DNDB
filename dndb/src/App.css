@@ -93,6 +93,20 @@ body::before {
   filter: brightness(80%) blur(3px);
 }
 
+#edit {
+  color: white;
+  background-color: rgb(2, 90, 255);
+  border-width: 1px;
+  border-color: black;
+}
+
+#delete {
+  color: white;
+  background-color: rgb(236, 0, 0);
+  border-width: 1px;
+  border-color: black;
+}
+
 #col-items-title {
   color: white;
   font-weight: bold;
@@ -113,10 +127,22 @@ body::before {
   border-color: black;
 }
 
+#title-users {
+  border-color: black;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 20px;
+  align-content: center;
+}
+
 #col-users {
   background-color: antiquewhite;
   border-width: 1px;
   border-color: black;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 20px;
+  align-content: center;
 }
 
 #user-table {
