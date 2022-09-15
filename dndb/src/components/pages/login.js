@@ -2,25 +2,25 @@ import React, {useEffect, useState} from "react";
 import { GoogleLogin, GoogleLogout} from 'react-google-login';
 import { gapi } from 'gapi-script';
 import { firestore } from "../../firebase";
-import { addDoc, collection } from "@firebase/firestore";
-import { Navigate, useNavigate } from "react-router-dom";
+import { doc, setDoc } from "@firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 export default function Login(){
-    const ref = collection(firestore, "users");
     const navigate = useNavigate();
     const [ profile, setProfile ] = useState([]);
     const clientId = '32351875976-m69h4suq0n8s8p17b9tntliivhjq2bei.apps.googleusercontent.com';
 
     const handleSave = async(e) => {
-        e.preventDefault();
-        console.log(profile.email);
+        console.log(e.email);
 
         let data = {
-            email: profile.email,
+            name: e.name      
         }
 
+        console.log(data)
+
         try{
-            addDoc(ref,data);
+            await setDoc(doc(firestore,"users", e.email), data);
         } catch(e) {
             console.log(e);
         }
@@ -37,7 +37,11 @@ export default function Login(){
     });
 
     const onSuccess = (res) => {
+        console.log(res);
+        console.log(profile);
         setProfile(res.profileObj);
+        console.log(profile);
+        handleSave(res.profileObj);
         navigate("/pages/dashboard");
     };
 

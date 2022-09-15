@@ -1,11 +1,11 @@
 import React from "react";
-import {Card , Col, Container, Row} from "react-bootstrap";
+import {Button, Card , Col, Container, Row} from "react-bootstrap";
 
 const Dashboard = () => {
     return (
         <Container fluid>
             <h1>Dashboard</h1> 
-            <Col class="col-12 my">
+            <Col className="col-12 my">
                 <Row className="rowDash">
                 <Card className="charCard" bg="Danger" style={{ width: '13rem'}}>
                 <Card.Img className="cardImg" variant="top" src="https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png" />
