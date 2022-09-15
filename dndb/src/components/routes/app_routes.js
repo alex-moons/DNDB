@@ -5,6 +5,7 @@ import Home from "../home";
 import Items from "../pages/items";
 import Dashboard from "../pages/dashboard";
 import Login from "../pages/login";
+import Users from "../pages/users";
 
 const AppRoutes = () => {
     return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
                 <Route element={<Home />} />
                 <Route path='/pages/items' element={<Items />} />
                 <Route path='/pages/dashboard' element={<Dashboard />} />
+                <Route path='/pages/users' element={<Users />} />
             </Routes>
         </BrowserRouter>
     );

@@ -30,6 +30,9 @@ const Menu = () => {
                     <NavDropdown.Item href="#action/3.3">Ranger</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
+                <Nav className="me">
+                    <Nav.Link href="/pages/users">Users</Nav.Link>
+                </Nav>
                 <Navbar.Text>
                     <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
                 </Navbar.Text>
