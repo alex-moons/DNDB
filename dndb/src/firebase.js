@@ -4,12 +4,14 @@ import {getFirestore} from "@firebase/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBSp65viM3lJ4mCwuBbJQiPCx7bsvthU8M",
-  authDomain: "testingreact-52094.firebaseapp.com",
-  projectId: "testingreact-52094",
-  storageBucket: "testingreact-52094.appspot.com",
-  messagingSenderId: "650575538676",
-  appId: "1:650575538676:web:7e83e2f59fcfc2eab031a1"
+  apiKey: "AIzaSyB5-fSOccCxBv_NeTTf9vT4gKbOypRRAWQ",
+  authDomain: "dnd-compenduary.firebaseapp.com",
+  databaseURL: "https://dnd-compenduary-default-rtdb.firebaseio.com",
+  projectId: "dnd-compenduary",
+  storageBucket: "dnd-compenduary.appspot.com",
+  messagingSenderId: "878631323897",
+  appId: "1:878631323897:web:7f0df1c01178b88430ba28",
+  measurementId: "G-K9JKDHZNDY"
 };
 
 // Initialize Firebase

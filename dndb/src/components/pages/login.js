@@ -12,12 +12,14 @@ export default function Login(){
     const clientId = '32351875976-m69h4suq0n8s8p17b9tntliivhjq2bei.apps.googleusercontent.com';
 
     const handleSave = async(e) => {
-        e.preventDefault();
-        console.log(profile.email);
+        console.log(e.email);
 
         let data = {
-            email: profile.email,
+            email: e.email,
+            name: e.name        
         }
+
+        console.log(data)
 
         try{
             addDoc(ref,data);
@@ -37,7 +39,11 @@ export default function Login(){
     });
 
     const onSuccess = (res) => {
+        console.log(res);
+        console.log(profile);
         setProfile(res.profileObj);
+        console.log(profile);
+        handleSave(res.profileObj);
         navigate("/pages/dashboard");
     };
 
